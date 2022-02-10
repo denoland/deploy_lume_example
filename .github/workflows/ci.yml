@@ -12,7 +12,9 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
+      contents: read
     env:
       DEPLOY_API_ENDPOINT: https://deno-staging.com
 
