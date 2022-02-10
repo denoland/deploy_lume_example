@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+
+    env:
+      DEPLOY_API_ENDPOINT: https://deno-staging.com
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Install Deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: 1.18.2
+
+      - name: Build site
+        run: deno run -A https://deno.land/x/lume/ci.ts
+
+      - name: Deploy to Deno Deploy
+        uses: lucacasonato/deployctl@github_action
+        with:
+          project: lume-example
+          entrypoint: https://deno.land/std/http/file_server.ts
+          cwd: _site
