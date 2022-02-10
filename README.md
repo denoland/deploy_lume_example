@@ -5,3 +5,25 @@ generator being deployed to Deno Deploy via GitHub Actions.
 
 To learn more about static files on Deno Deploy, view this blog post:
 https://deno.com/blog/deploy-static-files
+
+## Development
+
+First, install [Lume][lume].
+
+```shell
+deno run -A https://deno.land/x/lume/install.ts
+```
+
+Then build the site:
+
+```shell
+lume
+```
+
+Then start the server:
+
+```shell
+deno run -A server/main.ts
+```
+
+[lume]: https://lumeland.github.io
