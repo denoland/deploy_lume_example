@@ -15,8 +15,6 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    env:
-      DEPLOY_API_ENDPOINT: https://deno-staging.com
 
     steps:
       - name: Clone repository
@@ -31,7 +29,7 @@ jobs:
         run: deno run -A https://deno.land/x/lume/ci.ts
 
       - name: Deploy to Deno Deploy
-        uses: lucacasonato/deployctl@github_action
+        uses: denoland/deployctl@v1
         with:
           project: lume-example
           entrypoint: https://deno.land/std/http/file_server.ts
