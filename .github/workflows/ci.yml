@@ -31,7 +31,7 @@ jobs:
         run: deno run -A https://deno.land/x/lume/ci.ts
 
       - name: Deploy to Deno Deploy
-        uses: lucacasonato/deployctl@github_action
+        uses: denoland/deployctl@main
         with:
           project: lume-example
           entrypoint: https://deno.land/std/http/file_server.ts
