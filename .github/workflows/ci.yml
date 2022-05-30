@@ -23,7 +23,7 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@main
         with:
-          deno-version: 1.22.0
+          deno-version: 1.22.1
 
       - name: Build site
         run: deno run -A https://deno.land/x/lume/ci.ts
