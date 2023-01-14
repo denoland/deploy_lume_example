@@ -26,7 +26,7 @@ jobs:
           deno-version: v1.x
 
       - name: Build site
-        run: deno run -A https://deno.land/x/lume/ci.ts
+        run: deno run -A https://deno.land/x/lume@v1.5.1/ci.ts
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
